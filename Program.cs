@@ -50,7 +50,7 @@
 
             // Part 2
 
-            double cost, hoursParked;
+            double cost, hoursParked, remainder;
             int minutes;
 
             minutes = 0;
@@ -58,17 +58,24 @@
 
             Console.WriteLine("Please enter the number of minutes your car was parked");
 
-            while (!Int32.TryParse(Console.ReadLine(), out minutes) || minutes <= 1)
+            while (!Int32.TryParse(Console.ReadLine(), out minutes) || minutes < 1)
             {
                 Console.WriteLine("Invalid Input. Please enter a whole number that is greater than 0");
             }
 
 
+           if (minutes % 60 > 0)
+            {
+                hoursParked = minutes / 60 + 1;
+            }
 
-            hoursParked = (minutes / 60);
-            hoursParked = Math.Ceiling(hoursParked);
+            else
+            {
+                hoursParked = minutes / 60;
+            }
 
-            Console.WriteLine(hoursParked);
+    
+
 
             cost = (2 * (hoursParked - 1)) + 4;
 
@@ -77,8 +84,64 @@
                 cost = 20;
             }
 
-            Console.WriteLine(cost);
 
+
+            Console.WriteLine("~~~~~~~~~~~~~~~~~~~~RECEIPT~~~~~~~~~~~~~~~~~~~~");
+            Console.WriteLine();
+            Console.WriteLine("NUMBER OF HOURS: " + hoursParked);
+            Console.WriteLine();
+            Console.WriteLine("Total Cost: " + cost);
+            Console.WriteLine();
+            Console.WriteLine();
+            Console.WriteLine();
+            Console.WriteLine();
+            Console.WriteLine();
+            Console.WriteLine();
+            Console.WriteLine("Thank you for choosing Sam's Parking Garage");
+            Console.WriteLine();
+            Console.WriteLine();
+
+
+            // Part 3
+
+            int category;
+            Console.WriteLine("Please enter a category of hurricane and I will tell you what wind speeds fall under that category");
+            while (!int.TryParse(Console.ReadLine(), out category) || category < 1 || category > 5)
+            {
+                Console.WriteLine("Please enter a valid integral input from 1-5");
+            }
+
+            switch (category)
+            {
+                case 1:
+                    Console.WriteLine("A catgory 1 hurricane contains wind speeds from 119-153 km/h or 74-95 mph or 64-82 kt");
+                    break;
+
+                case 2:
+                    Console.WriteLine("A category 2 hurricane contains wind speeds from 154-177 km/h or 96-110 mph or 83-95 kt");
+                    break;
+
+                case 3:
+                    Console.WriteLine("A category 3 hurricane contains wind speeds from 178-209 km/h or 111-130 mph or 96 - 113 kt");
+                    break;
+
+                case 4:
+                    Console.WriteLine("A category 4 hurricane contains wind speeds from 210-249 km/h or 131-155 mph or 114-135 kt");
+                    break;
+
+                case 5:
+                    Console.WriteLine("A category 5 hurricane contains wind speeds greater than 249 km/h or 155 mph or 135kt");
+                    break;
+
+
+
+
+
+
+            }
+
+
+            
 
         }
     }
