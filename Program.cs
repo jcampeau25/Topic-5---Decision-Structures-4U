@@ -90,7 +90,7 @@
             Console.WriteLine();
             Console.WriteLine("NUMBER OF HOURS: " + hoursParked);
             Console.WriteLine();
-            Console.WriteLine("Total Cost: " + cost);
+            Console.WriteLine("Total Cost: " + cost.ToString("C"));
             Console.WriteLine();
             Console.WriteLine();
             Console.WriteLine();
